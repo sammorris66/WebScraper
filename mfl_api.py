@@ -10,7 +10,7 @@ class AcrossThePond:
 
         self.league_id = 24073
         self.username = 'morris_data'
-        self.password = 'caveman1'
+        self.password = 'xxxxxx'
         try:
             assert isinstance(team_name, str)
             self.team_name = team_name
