@@ -44,22 +44,22 @@ def web_scrap():
 
     return message
 
-def insert_db(data):
 
-    conn = sqlite3.connect('shares.db')
-    c = conn.cursor()
-    c.execute('INSERT INTO shares VALUES (?,?,?)', data)
-    conn.commit()
-    print('Data has been added')
-    conn.close()
+#def insert_db(data):
+    #conn = sqlite3.connect('shares.db')
+    #c = conn.cursor()
+    #c.execute('INSERT INTO shares VALUES (?,?,?)', data)
+    #conn.commit()
+    #print('Data has been added')
+    #conn.close()
 
-def query_db():
+#def query_db():
 
-    conn = sqlite3.connect('shares.db')
-    c = conn.cursor()
-    c.execute('SELECT * FROM shares')
-    print(c.fetchall())
-    conn.close()
+#    conn = sqlite3.connect('shares.db')
+#    c = conn.cursor()
+#    c.execute('SELECT * FROM shares')
+#    print(c.fetchall())
+#    conn.close()
 
 
 def share_price(url, amt):
@@ -90,12 +90,12 @@ def share_price(url, amt):
     #assert symbol == ''
     #assert price == ''
 
-    try:
-        full_data = (date, symbol, price)
-    except ValueError:
-        mylogger.error('Data could not be retrieved.')
-    else:
-        insert_db(full_data)
+    #try:
+    #    full_data = (date, symbol, price)
+    #except ValueError:
+    #    mylogger.error('Data could not be retrieved.')
+    #else:
+    #    insert_db(full_data)
 
     mylogger.debug('Share price function has run')
 
