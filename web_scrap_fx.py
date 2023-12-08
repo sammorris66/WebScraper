@@ -138,7 +138,7 @@ def send_email(message, subject):
 
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login('samuel.morris1980@gmail.com', ${{ secrets.EMAIL_PASSWORD }})
+        server.login('samuel.morris1980@gmail.com', os.environ['email_password'])
         server.send_message(msg)
  
 
