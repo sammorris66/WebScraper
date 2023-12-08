@@ -2,7 +2,7 @@ name: Python
 
 on:
   schedule:
-    -  cron: 0 17 16 ? * SUN,MON,TUE,WED,THU,FRI,SAT *
+    -  cron: '0 21 16 ? * SUN,MON,TUE,WED,THU,FRI,SAT *'
 
 jobs:
   build:
