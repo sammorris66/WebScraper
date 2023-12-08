@@ -3,7 +3,6 @@ import smtplib
 from email.message import EmailMessage
 import os
 import logging
-import sqlite3
 import re
 import datetime
 
