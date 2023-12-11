@@ -18,6 +18,6 @@ jobs:
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       - name: Install requests_html
-        run: pip install requests_html
+        run: pip install -r requirements.txt
       - name: Run Web Scrapper
         run: python web_scrap_fx.py
