@@ -4,8 +4,8 @@ from email.message import EmailMessage
 import os
 import logging
 import sqlite3
-import re
-import datetime
+#import re
+#import datetime
 
 def get_logger():
 
