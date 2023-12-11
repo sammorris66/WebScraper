@@ -97,7 +97,7 @@ def share_price(url, amt):
 #    else:
 #        insert_db(full_data)
 
-.    mylogger.debug('Share price function has run')
+    mylogger.debug('Share price function has run')
 
     share_details = '\n'.join(info)
 
