@@ -1,4 +1,4 @@
-from requests_html import HTMLSession
+000000000000from requests_html import HTMLSession
 import smtplib
 from email.message import EmailMessage
 import os
@@ -71,33 +71,33 @@ def share_price(url, amt):
     info = share_info.split('\n')[:4:3]
     value = int(amt) * eval(info[1][:6:1]) / 100
 
-    symbol_pattern = re.compile(r'[(]([A-Z\W]+)[)]')
-    matches = symbol_pattern.finditer(info[0])
+ #   symbol_pattern = re.compile(r'[(]([A-Z\W]+)[)]')
+ #   matches = symbol_pattern.finditer(info[0])
 
-    for x in matches:
+ #   for x in matches:
         symbol = x.group(1)
 
-    price_pattern = re.compile(r'^(\d+[.]\d+)')
-    price_matches = price_pattern.finditer(info[1])
+ #   price_pattern = re.compile(r'^(\d+[.]\d+)')
+ #   price_matches = price_pattern.finditer(info[1])
 
-    for match in price_matches:
+#    for match in price_matches:
 
-        price = match.group(1)
+#        price = match.group(1)
 
-    date_full = datetime.datetime.today()
-    date = date_full.strftime("%d/%m/%y")
+#    date_full = datetime.datetime.today()
+#    date = date_full.strftime("%d/%m/%y")
 
     #assert symbol == ''
     #assert price == ''
 
-    try:
-        full_data = (date, symbol, price)
-    except ValueError:
-        mylogger.error('Data could not be retrieved.')
-    else:
-        insert_db(full_data)
+# try:
+#        full_data = (date, symbol, price)
+#    except ValueError:
+#        mylogger.error('Data could not be retrieved.')
+#    else:
+#        insert_db(full_data)
 
-    mylogger.debug('Share price function has run')
+.    mylogger.debug('Share price function has run')
 
     share_details = '\n'.join(info)
 
