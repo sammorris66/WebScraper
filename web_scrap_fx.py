@@ -75,7 +75,7 @@ def share_price(url, amt):
  #   matches = symbol_pattern.finditer(info[0])
 
  #   for x in matches:
-        symbol = x.group(1)
+ #       symbol = x.group(1)
 
  #   price_pattern = re.compile(r'^(\d+[.]\d+)')
  #   price_matches = price_pattern.finditer(info[1])
