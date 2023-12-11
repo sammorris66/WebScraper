@@ -1,4 +1,4 @@
-000000000000from requests_html import HTMLSession
+from requests_html import HTMLSession
 import smtplib
 from email.message import EmailMessage
 import os
