@@ -4,7 +4,6 @@ from email.message import EmailMessage
 import os
 import logging
 import re
-import datetime
 
 def get_logger():
 
@@ -52,10 +51,6 @@ def share_price(url, amt):
     share_info = r.html.find('#quote-header-info', first=True).text
     info = share_info.split('\n')[:4:3]
     value = int(amt) * eval(info[1][:6:1]) / 100
-
-    symbol_pattern = re.compile(r'[(]([A-Z\W]+)[)]')
-    matches = symbol_pattern.finditer(info[0])
-
 
     mylogger.debug('Share price function has run')
 
