@@ -3,9 +3,8 @@ import smtplib
 from email.message import EmailMessage
 import os
 import logging
-import sqlite3
-#import re
-#import datetime
+import re
+import datetime
 
 def get_logger():
 
@@ -44,23 +43,6 @@ def web_scrap():
 
     return message
 
-def insert_db(data):
-
-    conn = sqlite3.connect('shares.db')
-    c = conn.cursor()
-    c.execute('INSERT INTO shares VALUES (?,?,?)', data)
-    conn.commit()
-    print('Data has been added')
-    conn.close()
-
-def query_db():
-
-    conn = sqlite3.connect('shares.db')
-    c = conn.cursor()
-    c.execute('SELECT * FROM shares')
-    print(c.fetchall())
-    conn.close()
-
 
 def share_price(url, amt):
 
@@ -71,31 +53,9 @@ def share_price(url, amt):
     info = share_info.split('\n')[:4:3]
     value = int(amt) * eval(info[1][:6:1]) / 100
 
- #   symbol_pattern = re.compile(r'[(]([A-Z\W]+)[)]')
- #   matches = symbol_pattern.finditer(info[0])
+    symbol_pattern = re.compile(r'[(]([A-Z\W]+)[)]')
+    matches = symbol_pattern.finditer(info[0])
 
- #   for x in matches:
- #       symbol = x.group(1)
-
- #   price_pattern = re.compile(r'^(\d+[.]\d+)')
- #   price_matches = price_pattern.finditer(info[1])
-
-#    for match in price_matches:
-
-#        price = match.group(1)
-
-#    date_full = datetime.datetime.today()
-#    date = date_full.strftime("%d/%m/%y")
-
-    #assert symbol == ''
-    #assert price == ''
-
-# try:
-#        full_data = (date, symbol, price)
-#    except ValueError:
-#        mylogger.error('Data could not be retrieved.')
-#    else:
-#        insert_db(full_data)
 
     mylogger.debug('Share price function has run')
 
@@ -136,6 +96,8 @@ def send_email(message, subject):
     msg['To'] = 'sam_morris66@hotmail.com'
 
     msg.set_content(message)
+
+    print(os.environ)
 
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
@@ -178,13 +140,3 @@ msg = f'{web_scrap()}\n{share_price("https://uk.finance.yahoo.com/quote/CMCX.L?p
 
 
 send_email(msg, 'Exchange rate latest')
-
-#fpl_price_updates()
-
-#share_price("https://uk.finance.yahoo.com/quote/CMCX.L?p=CMCX.L", 1225)
-#query_db()
-#web_scrap()
-
-#for x in fpl_price_updates():
-
-    #print(x)
