@@ -3,7 +3,6 @@ import smtplib
 from email.message import EmailMessage
 import os
 import logging
-import re
 
 def get_logger():
 
