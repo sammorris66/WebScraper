@@ -1,9 +1,9 @@
-#Test
 from requests_html import HTMLSession
 import smtplib
 from email.message import EmailMessage
 import os
 import logging
+import yaml
 
 def get_logger():
 
@@ -62,8 +62,17 @@ def share_price(url, amt):
 
 def weather():
 
+    with open('config_webscapper.yml') as file: 
+        read_config = yaml.safe_load(file)
+
+        print(read_config)
+
+        baseurl = read_config['weather']['url']
+
+        print(baseurl)
+
     session = HTMLSession()
-    r = session.get('https://www.bbc.co.uk/weather/2643743')
+    r = session.get(url=baseurl + '/weather/2643743')
 
     temps = r.html.find('div.wr-time-slot-primary__temperature')
     times = r.html.find('span.wr-time-slot-primary__time')
