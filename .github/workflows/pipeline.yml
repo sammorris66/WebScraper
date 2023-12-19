@@ -1,6 +1,7 @@
 name: Python
 
-on: [PUSH]
+on:
+  push
 
 jobs:
   build:
