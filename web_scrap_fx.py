@@ -73,7 +73,7 @@ def weather():
         print(baseurl)
 
     session = HTMLSession()
-    r = session.get(url=baseurl + '/weather/2643743')
+    r = session.get(url=baseurl + '/weather/2145765')
 
     temps = r.html.find('div.wr-time-slot-primary__temperature')
     times = r.html.find('span.wr-time-slot-primary__time')
